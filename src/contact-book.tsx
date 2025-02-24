@@ -1,7 +1,14 @@
-import { BaseSyntheticEvent, useState } from "react";
+import { BaseSyntheticEvent, useEffect, useState } from "react";
 
 const ContactBook = () => {
-  const [contacts, setContacts] = useState([]);
+  const [contacts, setContacts] = useState(() => {
+    return JSON.parse(localStorage.getItem("CONTACTS")) || [];
+  });
+
+  type Contact = {
+    name: string;
+    city: string;
+  };
 
   const handleAddContact = (event: BaseSyntheticEvent) => {
     event.preventDefault();
@@ -12,6 +19,19 @@ const ContactBook = () => {
     };
     setContacts([...contacts, newContact]);
   };
+
+  const handleDelete = (indexToDelete: number) => {
+    const filteredArray = contacts.filter(
+      (_contact: Contact, index: number) => index !== indexToDelete,
+    );
+
+    setContacts(filteredArray);
+  };
+
+  useEffect(() => {
+    if (contacts.length > 0)
+      window.localStorage.setItem("CONTACTS", JSON.stringify(contacts));
+  }, [contacts]);
 
   return (
     <div>
@@ -35,10 +55,20 @@ const ContactBook = () => {
       <div>
         <h2>Contacts</h2>
         <ul>
-          {contacts.map((contact, index) => (
-            <li key={index}>
-              {contact.name} {contact.city}
-            </li>
+          {contacts.map((contact: Contact, index: number) => (
+            <div>
+              <li key={index}>
+                {contact.name} {contact.city}
+                <button
+                  onClick={() => {
+                    handleDelete(index);
+                  }}
+                >
+                  Delete
+                </button>
+              </li>
+              <br />
+            </div>
           ))}
         </ul>
       </div>
