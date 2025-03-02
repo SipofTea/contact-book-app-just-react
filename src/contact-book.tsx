@@ -1,78 +1,105 @@
-import { BaseSyntheticEvent, useEffect, useState } from "react";
+// import { BaseSyntheticEvent, useEffect, useState } from "react";
+import "./styles.css";
+import ContactCard from "./contact-card";
+import mockContacts from "./mockContacts";
 
 const ContactBook = () => {
-  const [contacts, setContacts] = useState(() => {
-    return JSON.parse(localStorage.getItem("CONTACTS")) || [];
-  });
+  // const [contacts, setContacts] = useState(() => {
+  //   return JSON.parse(localStorage.getItem("CONTACTS")) || [];
+  // });
 
-  type Contact = {
-    name: string;
-    city: string;
-  };
+  // type Contact = {
+  //   name: string;
+  //   city: string;
+  // };
 
-  const handleAddContact = (event: BaseSyntheticEvent) => {
-    event.preventDefault();
+  const penIcon = require("/public/images/icons/pen.svg") as string;
+  const tortieCat = require("/public/images/tortie_cat.jpg") as string;
+  const placeholderQR = require("/public/images/placeholder_qr.png") as string;
 
-    const newContact = {
-      name: event.target[0].value,
-      city: event.target[1].value,
-    };
-    setContacts([...contacts, newContact]);
-  };
+  // const handleAddContact = (event: BaseSyntheticEvent) => {
+  //   event.preventDefault();
 
-  const handleDelete = (indexToDelete: number) => {
-    const filteredArray = contacts.filter(
-      (_contact: Contact, index: number) => index !== indexToDelete,
-    );
+  //   const newContact = {
+  //     name: event.target[0].value,
+  //     city: event.target[1].value,
+  //   };
+  //   setContacts([...contacts, newContact]);
+  // };
 
-    setContacts(filteredArray);
-  };
+  // const handleDelete = (indexToDelete: number) => {
+  //   const filteredArray = contacts.filter(
+  //     (_contact: Contact, index: number) => index !== indexToDelete,
+  //   );
 
-  useEffect(() => {
-    if (contacts.length > 0)
-      window.localStorage.setItem("CONTACTS", JSON.stringify(contacts));
-  }, [contacts]);
+  //   setContacts(filteredArray);
+  // };
+
+  // useEffect(() => {
+  //   if (contacts.length > 0)
+  //     window.localStorage.setItem("CONTACTS", JSON.stringify(contacts));
+  // }, [contacts]);
 
   return (
-    <div>
-      <div>
-        <h1>Contact book</h1>
+    <>
+      <header className="header">
+        <img src={penIcon} style={{ padding: "20px" }}></img>
+        <h1>Pen pals</h1>
+      </header>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifySelf: "center",
+        }}
+      >
+        <div
+          style={{
+            maxWidth: "800px",
+            display: "flex",
+            height: "200px",
+            justifyContent: "space-between",
+            alignSelf: "center",
+            padding: "20px",
+          }}
+        >
+          <img
+            src={tortieCat}
+            style={{ height: "200px", width: "200px", borderRadius: "100px" }}
+          ></img>
+          <div
+            style={{
+              flexDirection: "column",
+              paddingLeft: "30px",
+              paddingRight: "60px",
+            }}
+          >
+            <h2>Else Meijerink</h2>
+            <p>p.e.meijerink@gmail.com</p>
+          </div>
+          <img
+            src={placeholderQR}
+            style={{ maxWidth: "100%", height: "200px" }}
+          ></img>
+        </div>
+        <div style={{ padding: "20px" }}>
+          <h2>Pals</h2>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              gap: "20px",
+              maxWidth: "80vw",
+              flexWrap: "wrap",
+            }}
+          >
+            {mockContacts.map(() => (
+              <ContactCard></ContactCard>
+            ))}
+          </div>
+        </div>
       </div>
-      <div>
-        <h2>Add a new contact</h2>
-        <form onSubmit={handleAddContact}>
-          <label htmlFor="name">Name </label>
-          <input id="name" type="text" name="name" />
-          <br />
-          <br />
-          <label htmlFor="city">City </label>
-          <input id="city" type="text" name="city" />
-          <br />
-          <br />
-          <input type="submit" value="Add contact" />
-        </form>
-      </div>
-      <div>
-        <h2>Contacts</h2>
-        <ul>
-          {contacts.map((contact: Contact, index: number) => (
-            <div>
-              <li key={index}>
-                {contact.name} {contact.city}
-                <button
-                  onClick={() => {
-                    handleDelete(index);
-                  }}
-                >
-                  Delete
-                </button>
-              </li>
-              <br />
-            </div>
-          ))}
-        </ul>
-      </div>
-    </div>
+    </>
   );
 };
 

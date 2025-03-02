@@ -1,0 +1,64 @@
+body {
+  /* 
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  */
+  background-color: #fff4e3;
+  font-family:
+    "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", "Geneva", "Verdana", "sans-serif";
+  margin: 0;
+}
+
+.header {
+  background-color: #6bcb9d;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+}
+
+.card {
+  background-color: #c39acb;
+  transition: 0.3s;
+  border-radius: 8px;
+  padding: 10px;
+  width: fit-content;
+}
+
+.container {
+  padding: 2px 16px;
+}
+
+#confetti-button {
+  padding: 15px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  background-color: lightpurple;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#confetti-button:hover {
+  background-color: lightgreen;
+}
+
+@keyframes confetti-fall {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100vh);
+  }
+}
+
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: red;
+  opacity: 0.8;
+  animation: confetti-fall 3.5s forwards;
+}
