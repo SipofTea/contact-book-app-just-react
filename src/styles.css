@@ -11,15 +11,9 @@ body {
   padding: 10px 20px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 img {
   border-radius: 50%;
-}
-
-.card {
-  background-color: #c39acb;
-  transition: 0.3s;
-  border-radius: 8px;
-  padding: 10px;
 }

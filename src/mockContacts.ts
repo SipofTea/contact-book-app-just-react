@@ -1,7 +1,8 @@
 const mockContacts = [
   {
     id: "1",
-    image: "image_url_1.jpg",
+    imageUrl:
+      "https://images.fineartamerica.com/images-medium-large-5/serious-cat-square-dog-photography.jpg",
     firstName: "Lily",
     lastName: "Adams",
     bio: "Chasing sunsets and vibes at every festival!",
@@ -9,11 +10,12 @@ const mockContacts = [
     instagram: "@lilyadams",
     snapchat: "@lilySnap",
     facebook: "facebook.com/lilyadams",
-    phonenumber: "123-456-7890",
+    phoneNumber: "123-456-7890",
   },
   {
     id: "2",
-    image: "image_url_2.jpg",
+    imageUrl:
+      "https://i.pinimg.com/736x/2b/47/18/2b4718827a37b6f11dc82e939984c571.jpg",
     firstName: "Ethan",
     lastName: "Miller",
     bio: "Dancing like nobody's watching since 2015.",
@@ -21,11 +23,12 @@ const mockContacts = [
     instagram: "@ethanmiller",
     snapchat: "@ethanSnap",
     facebook: "facebook.com/ethanmiller",
-    phonenumber: "234-567-8901",
+    phoneNumber: "234-567-8901",
   },
   {
     id: "3",
-    image: "image_url_3.jpg",
+    imageUrl:
+      "https://media.istockphoto.com/id/1368035536/photo/hungry-white-calico-tricolor-cat-licking-lips-waiting-for-food.jpg?s=612x612&w=0&k=20&c=PuSdo_Vp7VkUzCcqWhA1rEWz3VIpTh0Qkz4Qtstg14o=",
     firstName: "Chloe",
     lastName: "Johnson",
     bio: "Living for the beats and the friends I make along the way.",
@@ -33,11 +36,12 @@ const mockContacts = [
     instagram: "@chloejohnson",
     snapchat: "@chloeSnap",
     facebook: "facebook.com/chloejohnson",
-    phonenumber: "345-678-9012",
+    phoneNumber: "345-678-9012",
   },
   {
     id: "4",
-    image: "image_url_4.jpg",
+    imageUrl:
+      "https://media.istockphoto.com/id/467947584/photo/square-portrait-of-a-persian-cat-looking-at-camera.jpg?s=612x612&w=0&k=20&c=jKV39jGto2zB4S_-b0cBHQ5Qrdj46T4gzgBpoT0kTFc=",
     firstName: "Zoe",
     lastName: "Williams",
     bio: "Collecting memories and wristbands one festival at a time.",
@@ -45,11 +49,12 @@ const mockContacts = [
     instagram: "@zoewilliams",
     snapchat: "@zoeSnap",
     facebook: "facebook.com/zoewilliams",
-    phonenumber: "456-789-0123",
+    phoneNumber: "456-789-0123",
   },
   {
     id: "5",
-    image: "image_url_5.jpg",
+    imageUrl:
+      "https://i.pinimg.com/736x/2b/47/18/2b4718827a37b6f11dc82e939984c571.jpg",
     firstName: "Ryan",
     lastName: "Garcia",
     bio: "Found my tribe under the stars and neon lights.",
@@ -57,11 +62,12 @@ const mockContacts = [
     instagram: "@ryangarcia",
     snapchat: "@ryanSnap",
     facebook: "facebook.com/ryangarcia",
-    phonenumber: "567-890-1234",
+    phoneNumber: "567-890-1234",
   },
   {
     id: "6",
-    image: "image_url_6.jpg",
+    imageUrl:
+      "https://i.pinimg.com/736x/2b/47/18/2b4718827a37b6f11dc82e939984c571.jpg",
     firstName: "Mia",
     lastName: "Martinez",
     bio: "Karaoke queen and glitter enthusiast—let's sing it loud!",
@@ -69,7 +75,7 @@ const mockContacts = [
     instagram: "@miamartinez",
     snapchat: "@miaSnap",
     facebook: "facebook.com/miamartinez",
-    phonenumber: "678-901-2345",
+    phoneNumber: "678-901-2345",
   },
 ];
 

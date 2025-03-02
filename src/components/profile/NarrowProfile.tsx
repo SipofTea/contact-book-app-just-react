@@ -1,5 +1,3 @@
-import "./styles.css";
-
 const NarrowProfile = () => {
   const tortieCat = require("/public/images/tortie_cat.jpg") as string;
   const placeholderQR = require("/public/images/placeholder_qr.png") as string;

@@ -1,13 +1,13 @@
+import Contact from "../../contact.types";
+import getRandomElement from "../../helpers/getRandomElement";
 import "./styles.css";
 
-const ContactCard = () => {
+const TallContactCard = (props: { contact: Contact }) => {
   const penIcon = require("/public/images/icons/pen.svg") as string;
-  const tortieCat = require("/public/images/tortie_cat.jpg") as string;
 
   const backgroundColours = ["#c39acb", "#8ed1fc", "#fece62"];
-  const getRandomElement = (arr: any[]) =>
-    arr[Math.floor(Math.random() * arr.length)];
 
+  const { contact } = props;
   return (
     <div
       className="card"
@@ -21,12 +21,14 @@ const ContactCard = () => {
         }}
       >
         <img
-          src={tortieCat}
+          src={contact.imageUrl}
           style={{
             height: "120px",
             width: "120px",
+            objectFit: "cover",
           }}
         ></img>
+
         <div
           className="iconContainer"
           style={{ display: "flex", flexDirection: "column" }}
@@ -51,13 +53,15 @@ const ContactCard = () => {
         </div>
       </div>
       <div className="container">
-        <h3>Pal</h3>
-        <text>pal@email.com</text>
+        <h3 style={{ marginBottom: "0" }}>{contact.firstName}</h3>
+        <div style={{ fontSize: ".8rem" }}>{contact.email}</div>
         <br></br>
-        <text>Some fun stuff about pal</text>
+        <div className="text" style={{ fontSize: ".8rem" }}>
+          {contact.bio}
+        </div>
       </div>
     </div>
   );
 };
 
-export default ContactCard;
+export default TallContactCard;

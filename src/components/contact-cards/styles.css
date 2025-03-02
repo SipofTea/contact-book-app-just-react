@@ -1,0 +1,27 @@
+.text {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.card {
+  background-color: #c39acb;
+  transition: 0.3s;
+  border-radius: 8px;
+  padding: 10px;
+  overflow: hidden;
+}
+
+@media only screen and (min-width: 768px) {
+  .card {
+    max-width: 20vw;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .card {
+    max-width: 15vw;
+  }
+}
