@@ -1,7 +1,9 @@
-// import { BaseSyntheticEvent, useEffect, useState } from "react";
+import { BaseSyntheticEvent, useEffect, useState } from "react";
 import "./styles.css";
 import ContactCard from "./contact-card";
 import mockContacts from "./mockContacts";
+import WideProfile from "./wide-profile";
+import NarrowProfile from "./narrow-profile";
 
 const ContactBook = () => {
   // const [contacts, setContacts] = useState(() => {
@@ -40,6 +42,17 @@ const ContactBook = () => {
   //     window.localStorage.setItem("CONTACTS", JSON.stringify(contacts));
   // }, [contacts]);
 
+  const [isDesktop, setDesktop] = useState(window.innerWidth > 800);
+
+  const updateMedia = () => {
+    setDesktop(window.innerWidth > 800);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", updateMedia);
+    return () => window.removeEventListener("resize", updateMedia);
+  });
+
   return (
     <>
       <header className="header">
@@ -53,35 +66,11 @@ const ContactBook = () => {
           justifySelf: "center",
         }}
       >
-        <div
-          style={{
-            maxWidth: "800px",
-            display: "flex",
-            height: "200px",
-            justifyContent: "space-between",
-            alignSelf: "center",
-            padding: "20px",
-          }}
-        >
-          <img
-            src={tortieCat}
-            style={{ height: "200px", width: "200px", borderRadius: "100px" }}
-          ></img>
-          <div
-            style={{
-              flexDirection: "column",
-              paddingLeft: "30px",
-              paddingRight: "60px",
-            }}
-          >
-            <h2>Else Meijerink</h2>
-            <p>p.e.meijerink@gmail.com</p>
-          </div>
-          <img
-            src={placeholderQR}
-            style={{ maxWidth: "100%", height: "200px" }}
-          ></img>
-        </div>
+        {isDesktop ? (
+          <WideProfile></WideProfile>
+        ) : (
+          <NarrowProfile></NarrowProfile>
+        )}
         <div style={{ padding: "20px" }}>
           <h2>Pals</h2>
           <div
@@ -91,6 +80,8 @@ const ContactBook = () => {
               gap: "20px",
               maxWidth: "80vw",
               flexWrap: "wrap",
+              alignItems: "center",
+              justifyContent: "space-evenly",
             }}
           >
             {mockContacts.map(() => (

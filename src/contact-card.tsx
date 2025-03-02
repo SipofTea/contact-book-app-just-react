@@ -1,3 +1,5 @@
+import "./styles.css";
+
 const ContactCard = () => {
   const penIcon = require("/public/images/icons/pen.svg") as string;
   const tortieCat = require("/public/images/tortie_cat.jpg") as string;
@@ -23,7 +25,6 @@ const ContactCard = () => {
           style={{
             height: "120px",
             width: "120px",
-            borderRadius: "60px",
           }}
         ></img>
         <div
