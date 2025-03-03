@@ -14,9 +14,19 @@
   overflow: hidden;
 }
 
+.iconContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 5px;
+}
+
 @media only screen and (min-width: 768px) {
   .card {
     max-width: 20vw;
+  }
+  .iconContainer {
+    flex-direction: column;
   }
 }
 

@@ -77,6 +77,7 @@ const ContactBook = () => {
         ) : (
           <NarrowProfile></NarrowProfile>
         )}
+        <div style={{ borderTop: ".5rem solid #fece62" }}></div>
         <div>
           <h2>Pals</h2>
           <div

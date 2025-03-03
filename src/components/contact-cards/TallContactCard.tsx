@@ -1,10 +1,9 @@
 import Contact from "../../contact.types";
 import getRandomElement from "../../helpers/getRandomElement";
+import SocialLinks from "./SocialLinks";
 import "./styles.css";
 
 const TallContactCard = (props: { contact: Contact }) => {
-  const penIcon = require("/public/images/icons/pen.svg") as string;
-
   const backgroundColours = ["#c39acb", "#8ed1fc", "#fece62"];
 
   const { contact } = props;
@@ -28,29 +27,7 @@ const TallContactCard = (props: { contact: Contact }) => {
             objectFit: "cover",
           }}
         ></img>
-
-        <div
-          className="iconContainer"
-          style={{ display: "flex", flexDirection: "column" }}
-        >
-          <img
-            src={penIcon}
-            style={{
-              height: "25px",
-              width: "25px",
-              paddingBottom: "10px",
-            }}
-          ></img>
-          <img
-            src={penIcon}
-            style={{
-              height: "25px",
-              width: "25px",
-              paddingBottom: "10px",
-            }}
-          ></img>
-          <img src={penIcon} style={{ height: "25px", width: "25px" }}></img>
-        </div>
+        <SocialLinks contact={contact}></SocialLinks>
       </div>
       <div className="container">
         <h3 style={{ marginBottom: "0" }}>{contact.firstName}</h3>

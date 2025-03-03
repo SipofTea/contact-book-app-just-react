@@ -7,6 +7,7 @@ type Contact = {
   email?: string;
   instagram?: string;
   snapchat?: string;
+  x?: string;
   facebook?: string;
   phoneNumber?: string;
 };
