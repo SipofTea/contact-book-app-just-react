@@ -7,6 +7,7 @@ import TallContactCard from "./components/contact-cards/TallContactCard";
 import WideContactCard from "./components/contact-cards/WideContactCard";
 import ContactAddedModal from "./components/ContactAddedModal.tsx/ContactAddedModal";
 import getRandomElement from "./helpers/getRandomElement";
+import Contact from "./contact.types";
 
 const ContactBook = () => {
   const [contacts, setContacts] = useState(() => {
@@ -91,12 +92,16 @@ const ContactBook = () => {
               justifyContent: "space-evenly",
             }}
           >
-            {contacts.map((contact) =>
-              isDesktop ? (
-                <TallContactCard contact={contact}></TallContactCard>
-              ) : (
-                <WideContactCard contact={contact}></WideContactCard>
-              ),
+            {contacts.length === 0 ? (
+              <div>Start adding pals by scanning their QR code!</div>
+            ) : (
+              contacts.map((contact: Contact) =>
+                isDesktop ? (
+                  <TallContactCard contact={contact}></TallContactCard>
+                ) : (
+                  <WideContactCard contact={contact}></WideContactCard>
+                ),
+              )
             )}
           </div>
         </div>

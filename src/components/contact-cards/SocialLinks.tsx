@@ -1,7 +1,7 @@
 import Contact from "../../contact.types";
 import "./styles.css";
 
-const SocialLinks = (props: {contact: Contact}) => {
+const SocialLinks = (props: { contact: Contact }) => {
   const { contact } = props;
 
   const instaIcon = require("/public/images/icons/instagram.svg") as string;

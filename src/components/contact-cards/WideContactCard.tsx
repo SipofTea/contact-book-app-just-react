@@ -33,11 +33,8 @@ const WideContactCard = (props: { contact: Contact }) => {
         ></img>
         <div className="container" style={{ margin: "5px" }}>
           <h3 style={{ marginBottom: "0" }}>{contact.firstName}</h3>
-          <div style={{ fontSize: ".7rem" }}>{contact.email}</div>
           <br></br>
-          <div className="text" style={{ fontSize: ".7rem" }}>
-            {contact.bio}
-          </div>
+          <div className="twoLineText">{contact.bio}</div>
         </div>
       </div>
       <SocialLinks contact={contact}></SocialLinks>

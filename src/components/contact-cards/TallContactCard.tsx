@@ -31,11 +31,8 @@ const TallContactCard = (props: { contact: Contact }) => {
       </div>
       <div className="container">
         <h3 style={{ marginBottom: "0" }}>{contact.firstName}</h3>
-        <div style={{ fontSize: ".8rem" }}>{contact.email}</div>
         <br></br>
-        <div className="text" style={{ fontSize: ".8rem" }}>
-          {contact.bio}
-        </div>
+        <div className="twoLineText">{contact.bio}</div>
       </div>
     </div>
   );
